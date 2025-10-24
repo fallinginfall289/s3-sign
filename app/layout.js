@@ -1,25 +1,34 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"; 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geist = Geist({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Vercel S3 Signed URL"
+  title: "Hello World",
+  description:
+    "Hello World",
+  openGraph: {
+    title: "Hello World",
+    description:
+      "Hello World",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hello World",
+    description: "Hello World",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`font-sans antialiased ${geist.className} ${geistMono.className}`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
